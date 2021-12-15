@@ -1,0 +1,10 @@
+.card{
+    width: 700px;
+    height: 400px;
+    margin-left: 20px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}

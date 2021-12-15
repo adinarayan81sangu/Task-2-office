@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+             <h1> @@ Quiz Registration</h1>
+    </div>
+    <div class="card-body">
+       
+        <form action="" [formGroup]="Registration" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="">UserName</label>
+                <input type="text" class="form-control" formControlName="username" name="username">
+            </div>
+            <div class="form-group">
+               <label for="">Email</label>
+               <input type="email" class="form-control" formControlName="Email" name="Email">
+           </div>
+           <div class="text-center">
+               <button class="btn btn-primary form-control" type="submit" [disabled]="Registration.invalid" >Submit</button>
+           </div>
+        </form>
+
+    </div>
+</div>

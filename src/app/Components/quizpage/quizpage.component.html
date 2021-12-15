@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="time text-right">
+    <div class="card" style="text-align: center;">
+        <app-calculatepage></app-calculatepage>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <p>Question {{questionNum}} of {{Length}}</p>
+        </div>
+        <div class="card-body">
+            <form action="" #Answer="ngForm">
+                <ng-container>
+                    {{questionNum}}&nbsp;
+                    {{questions.question}}
+                </ng-container>
+                <ol type="a">
+                    <ng-container *ngFor="let x of questions.options,let i=index">
+
+                        <input style="display: block;" name="AnsValue" type="radio" class="form-check-input mr-5 "
+                            value={{i+1}} #Answer (change)="getAnswer($event,questions.id)"
+                            [checked]="Answerall[questions.id] == Answer.value">
+                        <span>
+                            <li class="ml-5">
+                                {{x}}
+                            </li>
+                        </span>
+                    </ng-container>
+                </ol>
+                <div class="btns mt-5">
+                    <button class="mr-2  btn-info" *ngIf="questionNum!=1"  (click)="PreveClick()">
+                        <span>
+                            << </span> preve</button>
+                    <button (click)="nexclick()" *ngIf="questionNum!=Length" class="btn-primary">Next>></button>
+                    <button *ngIf="questionNum==Length" class="btn btn-primary"  (click)="postResult()" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
