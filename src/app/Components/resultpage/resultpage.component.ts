@@ -12,9 +12,11 @@ export class ResultpageComponent implements OnInit {
   // mainAns={};
   username=localStorage.getItem('user');
   length:any
+  public view: boolean = false;
   count: number = 0;
   userAnswers: any;
-  CorrectAnswers: any
+  CorrectAnswers: any;
+  MainQues:any
   constructor(private rl: QuizsharedService, private rt: ActivatedRoute) { }
   ngOnInit(): void {
 
@@ -24,9 +26,14 @@ export class ResultpageComponent implements OnInit {
         this.userAnswers = res;
         console.log("user", this.userAnswers);
         this.rl.answerget().subscribe((res) => {
-          // console.log(res)
+           console.log(res)
           this.CorrectAnswers = res;
-          console.log("correct", this.CorrectAnswers)
+          console.log("correct", this.CorrectAnswers);
+          this.rl.getTotaldata().subscribe(res=>{
+                   this.MainQues=res;    
+                   console.log(this.MainQues);
+                   
+          })
           this.Calculate()
         })
       })

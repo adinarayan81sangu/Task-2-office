@@ -1,10 +1,16 @@
-.card{
-    width: 700px;
-    height: 400px;
+/* .card{
+    width: 800px;
+    height: auto;
     margin-left: 20px;
     text-align: center;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
+} */
+.redText{
+    color: red;
+}
+.greenText{
+    color: green;
 }

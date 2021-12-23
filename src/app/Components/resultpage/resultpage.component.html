@@ -11,9 +11,45 @@
     <div class="col-6">
       <img src="assets/prize.jpg" alt="win cup image" width="400px" height="300px">
     </div>
-    <div class="col-6 text-center">
-      <i style="font-size: 30px;">You result is</i>
-      <h1>{{count}}/{{length}}</h1>
+    <div class="col-6 text-center" style="margin-top: 30px;">
+      <i style="font-size: 30px;">Your result is</i>
+      <h1 style="margin-top: 20px;">{{count}}/{{length}}</h1>
     </div>
   </div>
 </div>
+<button class="btn btn-success" (click)="view=true">ViewScores</button>
+
+<ng-container  *ngFor="let qs of MainQues" >
+  <div class="card" *ngIf="view">
+    <div class="card-header">
+        {{qs.id}}&nbsp;&nbsp;{{qs.question}}
+    </div>
+    <div class="card-body">
+      <ol type="a">
+        <ng-container *ngFor="let x of qs.options,let i=index">
+          <input type="radio" style="display: block;" name="radio" class="form-check-input mr-5" value={{i+1}}>
+         
+          <li class="ml-5" style="font-size: 20px;" [class.greenText]="qs.answer == i+1" >
+          
+            <!-- {{userAnswers[i]}} -->
+          
+            {{x}}
+          </li>
+         
+        </ng-container>
+        <!-- <ng-container *ngFor="let x of MainQues.options,let i=index"> -->
+
+            <!-- <input style="display: block;" name="AnsValue" type="radio" class="form-check-input "
+                value={{i+1}}> -->
+            <!-- <h1>fdfdgd</h1>
+        </ng-container> -->
+       
+    </ol>
+    </div>
+    <div class="card-footer">
+          <h3>CORRECT</h3>
+          <h3>X &nbsp;&nbsp; WRONG</h3>
+          <h3>NOT ANSWERED</h3>
+    </div>
+  </div>
+</ng-container>
